@@ -1,0 +1,3 @@
+# Aeres
+
+Autonomous AI security drone — initialising...
