@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/aeres/"
+title = "Aeres — AI Security Drone"
+version = "1.0.0"
+id = "artifacts/aeres"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/aeres/" ]
+localPort = 20638
+
+[services.development]
+run = "pnpm --filter @workspace/aeres run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/aeres", "run", "build" ]
+publicDir = "artifacts/aeres/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20638"
+BASE_PATH = "/aeres/"

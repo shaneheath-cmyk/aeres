@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Aeres PAX push agent every 5 minutes
+Requires=pax-agent.service
+
+[Timer]
+OnBootSec=60
+OnUnitActiveSec=5min
+Unit=pax-agent.service
+
+[Install]
+WantedBy=timers.target
